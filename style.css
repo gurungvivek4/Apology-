@@ -1,0 +1,340 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --pink: #ff4f9a;
+  --hot-pink: #ff2f78;
+  --light-pink: #fff0f7;
+  --purple: #8d5cff;
+  --yellow: #ffd95a;
+  --ink: #3d2940;
+  --white: #fffdfd;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Poppins", sans-serif;
+  background:
+    radial-gradient(circle at 10% 15%, #ffd4e7 0 90px, transparent 91px),
+    radial-gradient(circle at 90% 10%, #e6d9ff 0 110px, transparent 111px),
+    radial-gradient(circle at 15% 90%, #fff0ad 0 100px, transparent 101px),
+    linear-gradient(135deg, #fff7fb, #fff0f7 50%, #f7f1ff);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .35;
+  background-image:
+    radial-gradient(#ff75ad 1px, transparent 1px),
+    radial-gradient(#9b73ff 1px, transparent 1px);
+  background-size: 32px 32px, 45px 45px;
+  background-position: 0 0, 15px 20px;
+}
+
+main {
+  width: min(760px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 45px 0 25px;
+  position: relative;
+  z-index: 2;
+}
+
+.card {
+  position: relative;
+  margin: 0 0 24px;
+  padding: clamp(25px, 5vw, 46px);
+  background: rgba(255, 253, 253, .9);
+  border: 3px solid #fff;
+  border-radius: 30px;
+  box-shadow: 0 18px 45px rgba(104, 48, 86, .13);
+  backdrop-filter: blur(7px);
+  animation: appear .7s ease both;
+}
+
+.hero {
+  text-align: center;
+  padding-top: 38px;
+}
+
+.sticker,
+.section-tag {
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 999px;
+  background: #ffe0ee;
+  color: #d62f75;
+  font-size: .84rem;
+  font-weight: 700;
+}
+
+.emoji {
+  font-size: 4rem;
+  margin: 18px 0 5px;
+  animation: float 2.5s ease-in-out infinite;
+}
+
+h1, h2 {
+  font-family: "Baloo 2", cursive;
+  line-height: .98;
+  margin: 8px 0 16px;
+}
+
+h1 {
+  font-size: clamp(3rem, 10vw, 5.4rem);
+  color: #432d43;
+}
+
+h1 span {
+  color: var(--pink);
+}
+
+h2 {
+  font-size: clamp(2rem, 6vw, 3rem);
+}
+
+p {
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.subtitle {
+  max-width: 590px;
+  margin: 0 auto 24px;
+  font-size: 1.05rem;
+}
+
+.tiny {
+  font-size: .78rem;
+  opacity: .65;
+}
+
+.primary,
+.secondary,
+.yes-btn,
+.no-btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 23px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.primary {
+  color: white;
+  background: linear-gradient(135deg, var(--pink), var(--hot-pink));
+  box-shadow: 0 10px 25px rgba(255, 47, 120, .28);
+}
+
+.secondary {
+  color: #5a3d75;
+  background: #eee5ff;
+}
+
+.primary:hover,
+.secondary:hover,
+.yes-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+.letter p {
+  margin: 17px 0;
+}
+
+.highlight {
+  padding: 18px 20px;
+  border-left: 6px solid var(--pink);
+  border-radius: 12px;
+  background: #fff0f7;
+}
+
+.signature {
+  margin-top: 25px;
+  text-align: right;
+  font-family: "Baloo 2", cursive;
+  font-size: 1.4rem;
+  color: #b73572;
+  transform: rotate(-2deg);
+}
+
+.fun,
+.game,
+.final {
+  text-align: center;
+}
+
+.meter {
+  width: 100%;
+  height: 24px;
+  padding: 4px;
+  margin: 28px 0 8px;
+  background: #f0dce7;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ffb0cf, #ff3e87, #8d5cff);
+  transition: width 1.8s cubic-bezier(.2,.8,.2,1);
+}
+
+.meter-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: .75rem;
+  opacity: .7;
+  margin-bottom: 20px;
+}
+
+.meter-label strong {
+  color: var(--hot-pink);
+  font-size: 1rem;
+}
+
+.reasons {
+  margin-top: 24px;
+  display: grid;
+  gap: 10px;
+  text-align: left;
+}
+
+.reasons div {
+  padding: 12px 15px;
+  border-radius: 14px;
+  background: #fff6fa;
+}
+
+.choice-area {
+  min-height: 100px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.yes-btn {
+  color: #fff;
+  background: #ff4f9a;
+}
+
+.no-btn {
+  color: #5a3d75;
+  background: #ece3ff;
+  position: relative;
+}
+
+.game-note {
+  font-size: .82rem;
+  opacity: .65;
+}
+
+.big-heart {
+  font-size: 5rem;
+  animation: heartbeat 1.2s infinite;
+}
+
+.final-message {
+  min-height: 30px;
+  margin-top: 18px;
+  color: #d62f75;
+  font-family: "Baloo 2", cursive;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+footer {
+  text-align: center;
+  padding: 5px 0 25px;
+  font-size: .78rem;
+  opacity: .6;
+}
+
+.hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heart {
+  position: absolute;
+  bottom: -40px;
+  font-size: 18px;
+  animation: rise linear forwards;
+  opacity: .75;
+}
+
+.confetti {
+  position: fixed;
+  top: -20px;
+  z-index: 99;
+  pointer-events: none;
+  animation: confettiFall 2.2s ease-in forwards;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-10px) rotate(4deg); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.16); }
+  30% { transform: scale(1); }
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-110vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes confettiFall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  main {
+    padding-top: 20px;
+  }
+
+  .card {
+    border-radius: 24px;
+  }
+
+  .choice-area {
+    gap: 10px;
+  }
+
+  .yes-btn,
+  .no-btn {
+    padding: 12px 17px;
+  }
+}
